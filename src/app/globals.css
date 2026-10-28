@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-frame: #140e0b;
+  --color-cream: #f0e4d6;
+  --color-ink: #1b120d;
+  --color-accent: #f26b21;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: var(--color-frame);
+  color: var(--color-ink);
+  scroll-behavior: auto; /* Handled smoothly by Lenis */
+}
+
+body {
+  background-color: var(--color-frame);
+  overflow-x: hidden;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: #f26b21;
+  color: #ffffff;
+}
+
+/* Custom minimal scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #140e0b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(240, 228, 214, 0.25);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(242, 107, 33, 0.6);
+}
+
+/* Glass panel effects */
+.glass-panel {
+  background: rgba(240, 228, 214, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(27, 18, 13, 0.08);
+}
+
+.glass-dark {
+  background: rgba(26, 16, 12, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(240, 228, 214, 0.1);
+}
+
+/* Headline masking animation container */
+.headline-mask {
+  display: block;
+  overflow: hidden;
+}
+
+.headline-line {
+  display: block;
+  transform: translateY(0);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
